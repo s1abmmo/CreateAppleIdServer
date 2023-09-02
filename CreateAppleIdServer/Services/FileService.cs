@@ -20,7 +20,7 @@ namespace CreateAppleIdServer.Services
                 result = "Complete";
             }
 
-            string content = $"\"{regInfo.VMName}\",\"{regInfo.CreateAt}\",\"{regInfo.FirstName}\",\"{regInfo.LastName}\",\"{regInfo.Password}\",\"{regInfo.Phone}\",\"{regInfo.MacPassword}\",\"{regInfo.Street}\",\"{regInfo.City}\",\"{regInfo.PostCode}\",\"{regInfo.AreaCode}\",\"{regInfo.KeywordSearch}\",\"{result}\"";
+            string content = $"\"{regInfo.VMName}\",\"{regInfo.CreateAt}\",\"{regInfo.FirstName}\",\"{regInfo.LastName}\",\"{regInfo.Password}\",\"{regInfo.Phone}\",\"{regInfo.MacPassword}\",\"{regInfo.Street}\",\"{regInfo.City}\",\"{regInfo.PostCode}\",\"{regInfo.AreaCode}\",\"{regInfo.KeywordSearch}\",\"{result}\"{Environment.NewLine}";
             File.AppendAllText(pathCsv, content);
         }
 
