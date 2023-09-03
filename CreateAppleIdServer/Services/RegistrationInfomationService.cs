@@ -24,12 +24,13 @@ namespace CreateAppleIdServer.Services
             Random rd = new Random();
             var fistName = FirstNames[rd.Next(0, FirstNames.Length)];
             var lastName = LastNames[rd.Next(0, LastNames.Length)];
-            var nameAppleId = (fistName + lastName).ToLower() + rd.Next(10000, 99999).ToString();
+            var nameAppleId = (fistName + lastName).ToLower();
             var maxLengthName = rd.Next(16, 18);
-            for (int i = nameAppleId.Length; i < maxLengthName; i++)
+            for (int i = nameAppleId.Length + 5; i < maxLengthName; i++)
             {
                 nameAppleId += alphaChars[rd.Next(0, alphaChars.Length)];
             }
+            nameAppleId += rd.Next(10000, 99999).ToString();
             var password = fistName + lastName + rd.Next(0, 999).ToString() + specialChars[rd.Next(0, specialChars.Length)];
             if (_storeDataModel.phones.Count < 1)
             {
