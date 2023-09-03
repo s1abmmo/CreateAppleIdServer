@@ -12,7 +12,8 @@ namespace CreateAppleIdServer.Services
         public readonly string[] Streets = { "50 jf ut", "48 fh" };
         public readonly string[] Cities = { "hn", "hcm" };
         public readonly string[] keywordsSearch = { "vpn" };
-        public readonly char[] specialChars = { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')' };
+        private readonly char[] specialChars = { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')' };
+        private readonly char[] alphaChars = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
         public RegistrationInfomationService(StoreDataModel storeDataModel)
         {
             _storeDataModel = storeDataModel;
@@ -23,6 +24,11 @@ namespace CreateAppleIdServer.Services
             var fistName = FirstNames[rd.Next(0, FirstNames.Length)];
             var lastName = LastNames[rd.Next(0, LastNames.Length)];
             var nameAppleId = (fistName + lastName).ToLower() + rd.Next(10000, 99999).ToString();
+            var maxLengthName = rd.Next(16, 18);
+            for(int i = nameAppleId.Length; i < maxLengthName; i++)
+            {
+                nameAppleId += alphaChars[rd.Next(0, alphaChars.Length)];
+            }
             var password = fistName + lastName + rd.Next(0, 999).ToString() + specialChars[rd.Next(0, specialChars.Length)];
             if (_storeDataModel.phones.Count < 1)
             {
