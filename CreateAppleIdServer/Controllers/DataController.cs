@@ -46,7 +46,7 @@ namespace CreateAppleIdServer.Controllers
                 }
                 else
                 {
-                    return BadRequest();
+                    return BadRequest("No phones");
                 }
             }
             catch (Exception ex)

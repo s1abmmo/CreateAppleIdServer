@@ -6,7 +6,7 @@ namespace CreateAppleIdServer.Services
     public class RegistrationInfomationService
     {
         private readonly StoreDataModel _storeDataModel;
-
+        private readonly IConfiguration _configuration;
         public readonly string[] FirstNames = { "Tran", "Le" };
         public readonly string[] LastNames = { "Trang", "Manh" };
         public readonly string[] Streets = { "50 jf ut", "48 fh" };
@@ -15,8 +15,9 @@ namespace CreateAppleIdServer.Services
         private readonly char[] specialChars = { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')' };
         private readonly char[] alphaChars = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
         private readonly string[] nameMonths = { "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december" };
-        public RegistrationInfomationService(StoreDataModel storeDataModel)
+        public RegistrationInfomationService(IConfiguration configuration, StoreDataModel storeDataModel)
         {
+            _configuration = configuration;
             _storeDataModel = storeDataModel;
         }
         public RegistrationInfomation? Create(string vmName)
@@ -31,7 +32,7 @@ namespace CreateAppleIdServer.Services
                 nameAppleId += alphaChars[rd.Next(0, alphaChars.Length)];
             }
             nameAppleId += rd.Next(10000, 99999).ToString();
-            var password = fistName + lastName + rd.Next(0, 999).ToString() + specialChars[rd.Next(0, specialChars.Length)];
+            var password = _configuration["CommonPassword"]; ;
             if (_storeDataModel.phones.Count < 1)
             {
                 return null;
