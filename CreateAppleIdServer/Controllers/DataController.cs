@@ -27,6 +27,7 @@ namespace CreateAppleIdServer.Controllers
         [HttpPost("GetRegistrationInfomation")]
         public IActionResult GetRegistrationInfomation([FromBody] GetRegistrationInfomationDto body)
         {
+            Console.WriteLine($"get info from {body.VMName}");
             _phonesService.Update();
             var i = _storeDataModel.registrationInfomations.FindIndex(e => e.VMName == body.VMName);
             if (i != -1)
@@ -57,6 +58,7 @@ namespace CreateAppleIdServer.Controllers
         [HttpPost("SendResult")]
         public IActionResult SendResult([FromBody] SendResultDto body)
         {
+            Console.WriteLine($"send result from {body.VMName} : {((int)body.FinishStep)}");
             try
             {
                 _registrationInfomationService.UpdateFinishStep(_storeDataModel, body.VMName, body.FinishStep);
