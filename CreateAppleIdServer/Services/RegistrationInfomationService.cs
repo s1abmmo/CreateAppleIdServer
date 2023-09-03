@@ -25,7 +25,7 @@ namespace CreateAppleIdServer.Services
             var lastName = LastNames[rd.Next(0, LastNames.Length)];
             var nameAppleId = (fistName + lastName).ToLower() + rd.Next(10000, 99999).ToString();
             var maxLengthName = rd.Next(16, 18);
-            for(int i = nameAppleId.Length; i < maxLengthName; i++)
+            for (int i = nameAppleId.Length; i < maxLengthName; i++)
             {
                 nameAppleId += alphaChars[rd.Next(0, alphaChars.Length)];
             }
@@ -41,6 +41,10 @@ namespace CreateAppleIdServer.Services
             var postCode = "100000";
             var areaCode = "84";
             var keywordSearch = keywordsSearch[rd.Next(0, keywordsSearch.Length)];
+            var dayOfBirth = rd.Next(1, 20);
+            var monthOfBirth = rd.Next(1, 13);
+            var yearOfBirth = rd.Next(1990, 2001);
+            var dateOfBirth = $"{dayOfBirth.ToString("00")}/{monthOfBirth.ToString("00")}/{yearOfBirth.ToString("00")}";
 
             return new RegistrationInfomation()
             {
@@ -55,7 +59,8 @@ namespace CreateAppleIdServer.Services
                 City = city,
                 PostCode = postCode,
                 AreaCode = areaCode,
-                KeywordSearch = keywordSearch
+                KeywordSearch = keywordSearch,
+                DateOfBirth = dateOfBirth,
             };
         }
 
