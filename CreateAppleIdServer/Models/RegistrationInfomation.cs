@@ -17,7 +17,10 @@ namespace CreateAppleIdServer.Models
         public string PostCode { get; set; } = "";
         public string AreaCode { get; set; } = "";
         public string KeywordSearch { get; set; } = "";
-        public string DateOfBirth { get; set; } = "";
+        public string DayOfBirth { get; set; } = "";
+        public string MonthOfBirth { get; set; } = "";
+        public string YearOfBirth { get; set; } = "";
+
         public FinishStepEnum FinishStep { get; set; } = FinishStepEnum.CreateInfo;
     }
 }

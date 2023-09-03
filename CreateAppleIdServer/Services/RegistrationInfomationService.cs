@@ -14,6 +14,7 @@ namespace CreateAppleIdServer.Services
         public readonly string[] keywordsSearch = { "vpn" };
         private readonly char[] specialChars = { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')' };
         private readonly char[] alphaChars = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
+        private readonly string[] nameMonths = { "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december" };
         public RegistrationInfomationService(StoreDataModel storeDataModel)
         {
             _storeDataModel = storeDataModel;
@@ -41,10 +42,9 @@ namespace CreateAppleIdServer.Services
             var postCode = "100000";
             var areaCode = "84";
             var keywordSearch = keywordsSearch[rd.Next(0, keywordsSearch.Length)];
-            var dayOfBirth = rd.Next(1, 20);
-            var monthOfBirth = rd.Next(1, 13);
-            var yearOfBirth = rd.Next(1990, 2001);
-            var dateOfBirth = $"{dayOfBirth.ToString("00")}/{monthOfBirth.ToString("00")}/{yearOfBirth.ToString("00")}";
+            var dayOfBirth = rd.Next(1, 20).ToString("00");
+            var monthOfBirth = nameMonths[rd.Next(0, nameMonths.Length)];
+            var yearOfBirth = rd.Next(1990, 2001).ToString("0000");
 
             return new RegistrationInfomation()
             {
@@ -60,7 +60,9 @@ namespace CreateAppleIdServer.Services
                 PostCode = postCode,
                 AreaCode = areaCode,
                 KeywordSearch = keywordSearch,
-                DateOfBirth = dateOfBirth,
+                DayOfBirth = dayOfBirth,
+                MonthOfBirth = monthOfBirth,
+                YearOfBirth = yearOfBirth
             };
         }
 
