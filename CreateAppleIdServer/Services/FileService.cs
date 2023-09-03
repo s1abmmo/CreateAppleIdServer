@@ -9,7 +9,13 @@ namespace CreateAppleIdServer.Services
         public FileService() { }
         public void InsertCsv(RegistrationInfomation regInfo)
         {
-            string result = "Error";
+            string result = "";
+
+            if (regInfo.FinishStep == FinishStepEnum.CreateInfo)
+            {
+                return;
+            }
+
             if (regInfo.FinishStep == FinishStepEnum.Register)
             {
                 result = "Not complete Review & Download";
