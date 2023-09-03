@@ -2,8 +2,8 @@
 {
     public enum FinishStepEnum
     {
-        CreateInfo,
-        Register,
-        ReviewDownload
+        CreateInfo = 0,
+        Register = 1,
+        ReviewDownload = 2
     }
 }
