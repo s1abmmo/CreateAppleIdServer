@@ -28,7 +28,7 @@ namespace CreateAppleIdServer.Controllers
         public IActionResult GetRegistrationInfomation([FromBody] GetRegistrationInfomationDto body)
         {
             Console.WriteLine($"get info from {body.VMName}");
-            _phonesService.Update();
+            //_phonesService.Update();
             var i = _storeDataModel.registrationInfomations.FindIndex(e => e.VMName == body.VMName);
             if (i != -1)
             {
