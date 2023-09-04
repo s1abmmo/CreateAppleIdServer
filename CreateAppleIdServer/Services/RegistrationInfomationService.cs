@@ -33,11 +33,12 @@ namespace CreateAppleIdServer.Services
             }
             nameAppleId += rd.Next(10000, 99999).ToString();
             var password = _configuration["CommonPassword"]; ;
-            if (_storeDataModel.phones.Count < 1)
+            var phone = _storeDataModel.GetPhone();
+            if (phone == null)
             {
                 return null;
             }
-            var phone = _storeDataModel.phones[0];
+
             var macPassword = "111111";
             var street = Streets[rd.Next(0, Streets.Length)];
             var city = Cities[rd.Next(0, Cities.Length)];
@@ -54,7 +55,7 @@ namespace CreateAppleIdServer.Services
                 FirstName = fistName,
                 LastName = lastName,
                 NameAppleId = nameAppleId,
-                Password = password,
+                Password = password!,
                 Phone = phone,
                 MacPassword = macPassword,
                 Street = street,

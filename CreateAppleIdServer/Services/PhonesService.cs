@@ -17,7 +17,7 @@ namespace CreateAppleIdServer.Services
                 var phones = File.ReadAllLines(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "phones.txt"));
                 foreach (var phone in phones)
                 {
-                    _storeDataModel.phones.Add(phone);
+                    _storeDataModel.AddNewPhone(phone);
                 }
 
                 File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "phones.txt"), "");
