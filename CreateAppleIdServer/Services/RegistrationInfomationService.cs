@@ -12,7 +12,7 @@ namespace CreateAppleIdServer.Services
         public readonly string[] Streets = { "50 jf ut", "48 fh" };
         public readonly string[] Cities = { "hn", "hcm" };
         public readonly string[] keywordsSearch = { "vpn" };
-        private readonly char[] specialChars = { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')' };
+        //private readonly char[] specialChars = { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')' };
         private readonly char[] alphaChars = "abcdefghijklmnopqrstuvwxyz".ToCharArray();
         private readonly string[] nameMonths = { "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december" };
         public RegistrationInfomationService(IConfiguration configuration, StoreDataModel storeDataModel)

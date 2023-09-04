@@ -11,6 +11,7 @@
 
         public void AddNewPhone(string phone)
         {
+            Console.WriteLine($"{DateTime.Now.ToString("HH:mm:ss")} them so {phone}");
             phones.Add(phone);
         }
 
@@ -22,6 +23,7 @@
             }
             var phone = phones[0];
             phones.RemoveAt(0);
+            Console.WriteLine($"{DateTime.Now.ToString("HH:mm:ss")} lay so {phone} con {phones.Count} so");
             return phone;
         }
 
