@@ -10,19 +10,31 @@ namespace CreateAppleIdServer.Services
             _storeDataModel = storeDataModel;
         }
 
-        public void Update()
+        public string? GetAPhone()
         {
             try
             {
-                var phones = File.ReadAllLines(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "phones.txt"));
-                foreach (var phone in phones)
+                var phones = File.ReadAllLines(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "phones.txt")).ToList();
+                //foreach (var phone in phones)
+                //{
+                //    _storeDataModel.AddNewPhone(phone);
+                //}
+                if (phones.Count < 1)
                 {
-                    _storeDataModel.AddNewPhone(phone);
+                    return null;
                 }
+                string phone = phones[0];
+                phones.RemoveAt(0);
 
-                File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "phones.txt"), "");
+                File.WriteAllLines(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "phones.txt"), phones);
+
+                return phone;
             }
-            catch { }
+            catch
+            {
+                return null;
+            }
+
         }
     }
 }
