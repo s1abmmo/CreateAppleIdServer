@@ -1,4 +1,4 @@
-﻿namespace CreateAppleIdServer.Models
+﻿namespace CreateAppleIdServer.DTOs
 {
     public class GetRegistrationInfomationDto
     {

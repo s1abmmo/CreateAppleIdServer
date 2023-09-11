@@ -1,4 +1,5 @@
-﻿using CreateAppleIdServer.Models;
+﻿using CreateAppleIdServer.DTOs;
+using CreateAppleIdServer.Models;
 using CreateAppleIdServer.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Cryptography.Xml;
@@ -9,14 +10,14 @@ namespace CreateAppleIdServer.Controllers
     [Route("[controller]")]
     public class DataController : ControllerBase
     {
-        private readonly RegistrationInfomationService _registrationInfomationService;
-        private StoreDataModel _storeDataModel;
-        private PhonesService _phonesService;
-        private FileService _fileService;
-        public DataController(RegistrationInfomationService registrationInfomationService,
+        private readonly IRegistrationInfomationService _registrationInfomationService;
+        private readonly StoreDataModel _storeDataModel;
+        private readonly IPhoneService _phonesService;
+        private readonly IFileService _fileService;
+        public DataController(IRegistrationInfomationService registrationInfomationService,
             StoreDataModel storeDataModel,
-            PhonesService phonesService,
-            FileService fileService)
+            IPhoneService phonesService,
+            IFileService fileService)
         {
             _registrationInfomationService = registrationInfomationService;
             _storeDataModel = storeDataModel;

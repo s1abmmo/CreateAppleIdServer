@@ -2,7 +2,7 @@
 
 namespace CreateAppleIdServer.Services
 {
-    public class PhonesService
+    public class PhonesService:IPhoneService
     {
         private StoreDataModel _storeDataModel;
         public PhonesService(StoreDataModel storeDataModel)

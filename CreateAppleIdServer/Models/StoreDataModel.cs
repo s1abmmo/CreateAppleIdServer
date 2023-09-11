@@ -4,6 +4,7 @@
     {
         public List<RegistrationInfomation> registrationInfomations = new List<RegistrationInfomation>();
         //private List<string> phones = new List<string>();
+        public List<VMThread> vMThreads = new List<VMThread>();
         public StoreDataModel()
         {
 

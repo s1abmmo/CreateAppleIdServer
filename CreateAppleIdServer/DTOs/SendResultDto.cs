@@ -1,6 +1,6 @@
 ﻿using CreateAppleIdServer.Enums;
 
-namespace CreateAppleIdServer.Models
+namespace CreateAppleIdServer.DTOs
 {
     public class SendResultDto
     {

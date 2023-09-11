@@ -3,7 +3,7 @@ using CreateAppleIdServer.Models;
 
 namespace CreateAppleIdServer.Services
 {
-    public class RegistrationInfomationService
+    public class RegistrationInfomationService: IRegistrationInfomationService
     {
         private readonly StoreDataModel _storeDataModel;
         private readonly IConfiguration _configuration;
