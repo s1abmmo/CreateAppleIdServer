@@ -13,11 +13,11 @@ namespace CreateAppleIdServer.Controllers
         private readonly IRegistrationInfomationService _registrationInfomationService;
         private readonly StoreDataModel _storeDataModel;
         private readonly IPhoneService _phonesService;
-        private readonly IFileService _fileService;
+        private readonly ICsvService _fileService;
         public DataController(IRegistrationInfomationService registrationInfomationService,
             StoreDataModel storeDataModel,
             IPhoneService phonesService,
-            IFileService fileService)
+            ICsvService fileService)
         {
             _registrationInfomationService = registrationInfomationService;
             _storeDataModel = storeDataModel;

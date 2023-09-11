@@ -2,7 +2,7 @@
 
 namespace CreateAppleIdServer.Services
 {
-    public interface IFileService
+    public interface ICsvService
     {
         public void InsertCsv(RegistrationInfomation regInfo);
     }

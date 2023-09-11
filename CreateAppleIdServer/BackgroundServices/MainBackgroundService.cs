@@ -1,4 +1,5 @@
-﻿using CreateAppleIdServer.Models;
+﻿using CreateAppleIdServer.Interfaces;
+using CreateAppleIdServer.Models;
 using CreateAppleIdServer.Services;
 
 namespace CreateAppleIdServer.BackgroundServices
@@ -6,11 +7,11 @@ namespace CreateAppleIdServer.BackgroundServices
     public class MainBackgroundService : BackgroundService
     {
         private StoreDataModel _storeData;
-        private FileService _fileService;
+        private CsvService _fileService;
         private IVMThreadService _vmThreadService;
         private SettingModel _setting;
         public MainBackgroundService(StoreDataModel storeData,
-            FileService fileService,
+            CsvService fileService,
             IVMThreadService vmThreadService,
             SettingModel myAppSetting)
         {

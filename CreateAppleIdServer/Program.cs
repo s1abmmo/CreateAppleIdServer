@@ -14,7 +14,7 @@ builder.Services.AddSingleton<StoreDataModel>();
 builder.Services.AddHostedService<MainBackgroundService>();
 builder.Services.AddScoped<IRegistrationInfomationService, RegistrationInfomationService>();
 builder.Services.AddScoped<IPhoneService, PhonesService>();
-builder.Services.AddTransient<IFileService, FileService>();
+builder.Services.AddTransient<ICsvService, FileService>();
 builder.Services.AddTransient<IVMThreadService, VMThreadService>();
 builder.Services.AddSingleton<SettingModel>();
 builder.Services.AddTransient<ISettingService, SettingService>();
